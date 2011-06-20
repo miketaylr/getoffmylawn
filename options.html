@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<title>Get Off My Lawn: Options</title>
+<style>
+img {float:left;margin-right:20px;}
+label {font-weight:bold;font-size:14px;display:block;width:270px;border:1px solid transparent;}
+[type=checkbox] {float:right;}
+body {background: #fff;padding:20px 25px 30px;width:275px;margin:100px auto;border-radius:5px;position:relative;font-family: 'Helvetica Neue', sans-serif;}
+html { /* http://leaverou.me/css3patterns/#argyle */
+  background-color: rgb(133, 3, 133);
+  background-image:-o-repeating-linear-gradient(-30deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  -o-repeating-linear-gradient(30deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  -o-linear-gradient(30deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+  -o-linear-gradient(-30deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+  background-size: 70px 120px;
+}
+h1 {position:absolute;top:-55px;left:0;font-size:26px;color:#fff}
+</style>
+<body>
+  <h1>Get Off My Lawn, Internet</h1>
+  <img src="icon.png" alt="angry old man">
+  <label>Google plus one: <input name="gplusone" type="checkbox"></label>
+  <label>Google buzz: <input name="gbuzz" type="checkbox"></label>
+  <label>Facebook like: <input name="fblike" type="checkbox"></label>
+  <label>Facebook connect: <input name="fbconnect" type="checkbox"></label>
+  <label>Tweet this: <input name="tweetthis" type="checkbox"></label>
+  <label>Linked In share: <input name="linkedin" type="checkbox"></label>
+  <label>Add This: <input name="addthis" type="checkbox"></label>
+  <script>
+  var checkboxes = document.querySelectorAll('input'),
+      //set the state of the checkbox depending on what's in widget.preferences
+      //bind click listener to set back options into widget.preferences
+      getOpts = (function(){
+        for (var i = 0, l = checkboxes.length; i < l; i++){
+          checkboxes[i].checked = widget.preferences[checkboxes[i].name];
+          checkboxes[i].addEventListener('click', function(){setOpts(this);}, false);
+        }
+      }()),
+    
+      setOpts = function(elm){
+        widget.preferences[elm.name] = elm.checked ? "disabled" : "";
+      };
+    
+  </script>
+</body>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>get off my lawn, internet</title>
+<script>
+(function(){
+  if (opera.extension.urlfilter){
+    var blocks = {
+          gplusone: '*://apis.google.com/js/plusone.js',
+          gbuzz: '*://www.google.com/buzz/*',
+          fblike: '*://www.facebook.com/plugins/*',
+          fbconnect: '*://connect.facebook.net/*',
+          tweetthis: '*://platform.twitter.com/*',
+          linkedin: '*://platform.linkedin.com/*',
+          addthis: '*://*.addthis.com/js/*'
+        },  
+        
+        filter = opera.extension.urlfilter,
+        
+        blockCrap = (function(){
+          for (var i = 0, len = widget.preferences.length; i < len; i++){
+            //in options.html, the user can set the value of a <preference> to the empty
+            //string, so we're relying on a non-empty string coercing to a truthy value
+            if (widget.preferences.key(i)) {
+              filter.block.add(blocks[widget.preferences.key(i)]);
+            };
+          }
+        }());
+  }
+}());
+</script>
