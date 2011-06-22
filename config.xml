@@ -7,11 +7,12 @@
   <feature name="opera:urlfilter"/>
   
   <!-- block everything by default, like a boss -->
-  <preference name="gplusone"  value="blocked" />
-  <preference name="gbuzz"     value="blocked" />
-  <preference name="fblike"    value="blocked" />
-  <preference name="fbconnect" value="blocked" />
-  <preference name="tweetthis" value="blocked" />
-  <preference name="linkedin"  value="blocked" />
-  <preference name="addthis"   value="blocked" />
+  <preference name="gplusone"   value="blocked" />
+  <preference name="gbuzz"      value="blocked" />
+  <preference name="fblike"     value="blocked" />
+  <preference name="fbconnect"  value="blocked" />
+  <preference name="tweetthis"  value="blocked" />
+  <preference name="linkedin"   value="blocked" />
+  <preference name="addthis"    value="blocked" />
+  <preference name="stumble"    value="blocked" />
 </widget>
