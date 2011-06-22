@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" version="0.2" id="http://people.opera.com/miket/ext/getoffmylawn" defaultlocale="en">
+<widget xmlns="http://www.w3.org/ns/widgets" version="0.3" id="http://people.opera.com/miket/ext/getoffmylawn" defaultlocale="en">
   <name>Get Off My Lawn</name>
   <description>Social Media widgets bringing you down? BLOCK THE CRUFT.</description>
   <author href="http://miketaylr.com">Mike Taylor</author>
