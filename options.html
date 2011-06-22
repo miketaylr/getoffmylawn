@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <title>Get Off My Lawn: Options</title>
 <style>
-img {float:left;margin-right:20px;}
-label {font-weight:bold;font-size:14px;display:block;width:270px;border:1px solid transparent;}
-[type=checkbox] {float:right;}
+ul {margin:0;}
+li {list-style-type:none;}
+img {float:left;margin-right:10px;padding-bottom:100px;}
+label {font-weight:bold;font-size:14px;display:block;width:245px;border:1px solid transparent;position:relative;}
+[type=checkbox] {position:absolute;right:0;}
 body {background: #fff;padding:20px 25px 30px;width:275px;margin:100px auto;border-radius:5px;position:relative;font-family: 'Helvetica Neue', sans-serif;}
 html { /* http://leaverou.me/css3patterns/#argyle */
   background-color: rgb(133, 3, 133);
@@ -18,13 +20,15 @@ h1 {position:absolute;top:-55px;left:0;font-size:26px;color:#fff}
 <body>
   <h1>Get Off My Lawn, Internet</h1>
   <img src="icon.png" alt="angry old man">
-  <label>Google plus one: <input name="gplusone" type="checkbox"></label>
-  <label>Google buzz: <input name="gbuzz" type="checkbox"></label>
-  <label>Facebook like: <input name="fblike" type="checkbox"></label>
-  <label>Facebook connect: <input name="fbconnect" type="checkbox"></label>
-  <label>Tweet this: <input name="tweetthis" type="checkbox"></label>
-  <label>Linked In share: <input name="linkedin" type="checkbox"></label>
-  <label>Add This: <input name="addthis" type="checkbox"></label>
+  <ul>
+    <li><label>Google plus one: <input name="gplusone" type="checkbox"></label></li>
+    <li><label>Google buzz: <input name="gbuzz" type="checkbox"></label></li>
+    <li><label>Facebook like: <input name="fblike" type="checkbox"></label></li>
+    <li><label>Facebook connect: <input name="fbconnect" type="checkbox"></label></li>
+    <li><label>Tweet this: <input name="tweetthis" type="checkbox"></label></li>
+    <li><label>Linked In share: <input name="linkedin" type="checkbox"></label></li>
+    <li><label>Add This: <input name="addthis" type="checkbox"></label></li>
+  </ul>
   <script>
   var checkboxes = document.querySelectorAll('input'),
       //set the state of the checkbox depending on what's in widget.preferences
