@@ -4,15 +4,34 @@
 <script>
 (function(){
   if (opera.extension.urlfilter){
+    //props to Fr0sT for this list: http://my.opera.com/Fr0sT/blog/2011/06/24/get-rid-of-social-crap-in-your-browser
     var blocks = {
           gplusone: '*://apis.google.com/js/plusone.js',
           gbuzz: '*://www.google.com/buzz/*',
-          fblike: '*://www.facebook.com/plugins/*',
-          fbconnect: '*://connect.facebook.net/*',
-          tweetthis: '*://platform.twitter.com/*',
+          fb: [
+            '*://www.facebook.com/plugins/*', 
+            '*://www.facebook.com/widgets/*', 
+            '*://static.ak.fbcdn.net/connect.php*', 
+            '*://connect.facebook.net/*', 
+            '*://www.facebook.com/miniprofile.php*'
+          ],
+          twitter: [
+            '*://platform.twitter.com/widgets.js',
+            '*://widgets.twimg.com*',
+            '*://twitter.com/javascripts/blogger.js',
+            '*://twitter.com/statuses/user_timeline/*',
+            '*://twitter.com/share*'
+          ],
           linkedin: '*://platform.linkedin.com/*',
-          addthis: '*://*.addthis.com/js/*',
-          stumble: '*://www.stumbleupon.com/badge/*'
+          addthis: [
+            '*://s7.addthis.com/*',
+            '*://api-public.addthis.com/*'
+          ],
+          stumble: '*://www.stumbleupon.com/badge/*',
+          vkontakte: [
+            '*://vkontakte.ru/js/api/*', 
+            '*://vkontakte.ru/share*'
+          ]
         },  
         
         filter = opera.extension.urlfilter,
@@ -22,7 +41,13 @@
             //in options.html, the user can set the value of a <preference> to the empty
             //string, so we're relying on a non-empty string coercing to a truthy value
             if (widget.preferences.key(i)) {
-              filter.block.add(blocks[widget.preferences.key(i)]);
+              if (Array.isArray(blocks[widget.preferences.key(i)])){
+                for (var j = 0, len = blocks[widget.preferences.key(i)].length; j < len; j++){
+                  filter.block.add(blocks[widget.preferences.key(i)][j]);
+                }
+              } else {
+               filter.block.add(blocks[widget.preferences.key(i)]); 
+              }
             };
           }
         }());
